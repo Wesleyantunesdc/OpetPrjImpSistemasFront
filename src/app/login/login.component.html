@@ -1,0 +1,30 @@
+<div class="div_esquerda">
+    <div class="div_esquerda_interna">
+        <h1>Conecte-se</h1>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput type="text" [(ngModel)]="username">
+            <button mat-button *ngIf="username" matSuffix mat-icon-button aria-label="close" (click)="username=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="senha">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <button mat-button click="entrar()">Entrar</button>
+    </div>
+</div>
+<div class="div_direita">
+    <div class="div_direita_interna">
+        <h1>Seja bem vindo!</h1>
+        <p>Se você não possui conta, clique no botão a baixo para cadastrar-se.</p>
+        <button  mat-icon-button  routerLink="/cadastro">Cadastrar-se</button> 
+    </div>
+</div>

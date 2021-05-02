@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2? family = Karla: wght @ 300 & display = swap');
+
+
+:host{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Karla', sans-serif;
+    h1{
+        color: #3cb99a;
+        font-size: 32pt;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+}
+
+.div_esquerda{
+    width: 45vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_esquerda_interna{
+    width: 80%;
+    height: 70%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    mat-form-field{
+        width: 80%;
+    }
+}
+.div_direita{
+    width: 55vw;
+    height: 100vh;
+    background-image: linear-gradient(to right,#76CAD4,#57BB90);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.div_direita_interna{
+    width: 80%;
+    height: 70%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h1{
+        color: #fff;
+        font-size: 26pt;
+        text-align: center;
+        margin: 10px;
+    }
+    p{
+        color: rgb(240, 239, 239);
+        font-size: 12pt;
+        text-align: center;
+    }
+    button{
+        width: 30%;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0);
+        border: 1px solid white;
+        color: white;
+        margin-top: 5px;
+    }
+}
+
+button{ 
+    width: 60%;
+    border-radius: 10px;
+    background-color: #3fcfab;
+    border: 1px solid #ffffff;
+    font-size: 16pt;
+    color: #fff;
+    margin-top: 10px;
+}
+
+
+@media(max-width: 800px){
+    :host{
+        flex-direction: column;
+    }
+
+    .div_esquerda{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .div_direita{
+        width: 100vw;
+        background-image: linear-gradient(to right,#76CAD4,#57BB90);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .div_esquerda_interna{
+        width: 80%;
+        height: 70%;
+    }
+    .div_direita_interna{
+        width: 80%;
+        height: 70%;
+    }
+}
