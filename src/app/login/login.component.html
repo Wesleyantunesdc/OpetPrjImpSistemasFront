@@ -1,24 +1,33 @@
 <div class="div_esquerda">
     <div class="div_esquerda_interna">
         <h1>Conecte-se</h1>
+        <ng-container *ngIf="erro">
+            <div class="div_erro">
+                {{mensagem_erro}}
+            </div>
+        </ng-container>
 
-        <mat-form-field appearance="fill">
-            <mat-label>Enter your password</mat-label>
-            <input matInput type="text" [(ngModel)]="username">
-            <button mat-button *ngIf="username" matSuffix mat-icon-button aria-label="close" (click)="username=''">
-                <mat-icon>close</mat-icon>
-            </button>
-        </mat-form-field>
+        <ng-container *ngIf="sucess">
+            <div class="div_sucess">
+                {{mensagem_sucess}}
+            </div>
+        </ng-container>
 
-        <mat-form-field appearance="fill">
-            <mat-label>Enter your password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="senha">
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-        </mat-form-field>
-
-        <button mat-button click="entrar()">Entrar</button>
+        <form [formGroup] = "form">
+            <mat-form-field appearance="fill">
+                <mat-label>Usuario</mat-label>
+                <input matInput type="text" formControlName = "username">
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Senha</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName = "senha" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </form>
+        <button mat-button (click)="efetuarLogin()">Entrar</button>
     </div>
 </div>
 <div class="div_direita">

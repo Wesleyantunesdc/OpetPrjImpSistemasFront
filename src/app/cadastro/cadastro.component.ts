@@ -13,6 +13,7 @@ import { Util } from './../util/utilizadades';
   styleUrls: ['./cadastro.component.scss']
 })
 export class CadastroComponent implements OnInit {
+  public erro = false;
 
   form: FormGroup = this.formBuilder.group({
     nome: ['', [Validators.required]],
@@ -20,10 +21,10 @@ export class CadastroComponent implements OnInit {
     senha: ['', [Validators.required]],
     dataNascimento: ['', [Validators.required]],
     periodo: ['', [Validators.required]],
-    curso: [, []]
+    curso: [, [Validators.required]]
   });
 
-  cursos: Curso[] = [new Curso('Administração', 1), new Curso('Medicina', 2), new Curso('Programação', 3)];
+  cursos: Curso[] = [];
   username: string = '';
   hide = true;
   util: Util;
@@ -31,24 +32,21 @@ export class CadastroComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private service: SistemaService,
-  ) {
-    this.util = new Util();
-  }
+  ) {}
 
   ngOnInit(): void {
     this.recuperarCursos();
   }
 
   async recuperarCursos() {
-    //this.cursos = await this.service.findByCursos();
+    this.cursos = await this.service.findByCursos();
   }
 
   async cadastrarUsuario() {
-    // if(this.form.invalid){
-    //   alert("Funcionario preenchido de forma errada!");
-    //   return;
-    // }
-    //alert("Passou na validção")
+    if(this.form.invalid){
+      this.erro = true;
+      return;
+    }
     await this.service.cadastrarUsuario(this.popularUsuario())
   }
 
