@@ -50,9 +50,9 @@
     
             <mat-form-field appearance="fill">
                 <mat-label>Curso</mat-label>
-                <mat-select [formControl]="form" ([ngModel])="curso.nomeCurso" required>
+                <mat-select formControlName = "curso" required>
                   <mat-option *ngFor="let curso of cursos" [value]="curso">
-                    {{curso}}
+                    {{curso.nomeCurso}}
                   </mat-option>
                 </mat-select>
             </mat-form-field>    

@@ -31,10 +31,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    mat-form-field{
-        width: 60%;
-        font-size: 12pt;
-    }
+
 }
 
 .div_esquerda_interna{
@@ -84,4 +81,16 @@ button{
     font-size: 16pt;
     color: #fff;
     margin-top: 10px;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    mat-form-field{
+        width: 60%;
+        font-size: 12pt;
+    }
 }

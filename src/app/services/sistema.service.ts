@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Curso} from './../models/Curso';
 import {Usuario} from './../models/Usuario';
+import * as moment from 'moment'
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,7 @@ export class SistemaService {
 
   async cadastrarUsuario(usuario: Usuario){
     let endpoint = this.URL_BASE + '/usuarios';
+    usuario.dataNascimento = moment(usuario.dataNascimento).format('yyyy-MM-DDTHH:mm:ssZ')
     console.log(usuario)
     return this.http.post<Usuario>(endpoint,usuario).toPromise();
   }
