@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Usuario } from '../models/Usuario';
 import { SistemaService } from '../services/sistema.service';
 
@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
     if(result === true){
       this.sucess = true;
       this.mensagem_sucess = "Usuario logado com sucesso!"
+      this.router.navigate(['acesso'],{})
     }else{
       this.erro = true;
       this.mensagem_erro = "Usuario ou senha incorretos!"
