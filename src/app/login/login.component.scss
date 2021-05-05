@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2? family = Karla: wght @ 300 & display = swap');
-
-
 :host{
     display: flex;
     flex-direction: row;
@@ -114,6 +111,7 @@ form{
 @media(max-width: 800px){
     :host{
         flex-direction: column;
+        height: 200vh;
     }
 
     .div_esquerda{
@@ -130,6 +128,9 @@ form{
         display: flex;
         align-items: center;
         justify-content: center;
+        button{
+            width: 70%;
+        }
     }
 
     .div_esquerda_interna{

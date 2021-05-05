@@ -22,7 +22,7 @@ export class SistemaService {
 
   async cadastrarUsuario(usuario: Usuario){
     let endpoint = this.URL_BASE + '/usuarios';
-    usuario.dataNascimento = moment(usuario.dataNascimento).format('yyyy-MM-DDTHH:mm:ssZ')
+    usuario.dataNascimento = moment(usuario.dataNascimento).format('yyyy-MM-DD')
     return this.http.post<Usuario>(endpoint,usuario).toPromise();
   }
 

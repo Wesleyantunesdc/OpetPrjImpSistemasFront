@@ -102,3 +102,33 @@ form{
     border: 2px solid rgb(255, 78, 78);
     border-radius: 5px;
 }
+@media(max-width: 800px){
+    :host{
+        flex-direction: column;
+        height: 200vh;
+    }
+
+    .div_esquerda{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .div_direita{
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .div_esquerda_interna{
+        width: 80%;
+        height: 70%;
+    }
+    .div_direita_interna{
+        width: 80%;
+        height: 70%;
+    }
+}

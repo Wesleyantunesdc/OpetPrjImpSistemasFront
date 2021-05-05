@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
     senha:['',[Validators.required]]
   })
 
-
   constructor(
     private router: Router,
     private sistemaService: SistemaService,
@@ -31,27 +30,39 @@ export class LoginComponent implements OnInit {
   }
 
   async efetuarLogin(){
-    this.erro = false;
-    this.sucess = false;
-
     let usuario : Usuario = new Usuario();
     usuario.username = this.form.controls.username.value;
     usuario.senha = this.form.controls.senha.value;
+
     if(this.form.invalid){
-      this.mensagem_erro = "Preencha os campos corretamente...";
-      this.erro = true;
+      this.msgErro("Preencha os campos corretamente...");
       return;
     }
-    this.erro = false;
+
     let result = await this.sistemaService.realizarLogin(usuario);
+
     if(result === true){
-      this.sucess = true;
-      this.mensagem_sucess = "Usuario logado com sucesso!"
+      this.msgSucess("Usuario logado com sucesso!");
       this.router.navigate(['acesso'],{})
     }else{
-      this.erro = true;
-      this.mensagem_erro = "Usuario ou senha incorretos!"
+      this.msgErro("Usuario ou senha incorretos!");
     }
 
+  }
+
+  msgErro(erro: string){
+    this.erro = true;
+    this.mensagem_erro = erro;
+    setTimeout(()=>{
+      this.erro = false
+    }, 4000)
+  }
+
+  msgSucess(sucess: string){
+    this.sucess = true;
+    this.mensagem_sucess = sucess;
+    setTimeout(()=>{
+      this.sucess = false
+    }, 4000) 
   }
 }
